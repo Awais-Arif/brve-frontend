@@ -1,0 +1,30 @@
+<!--<div class="pagination-wraper">-->
+<!--<p>Showing 1 - 15 of 120 results</p>-->
+<!--    <div class="pagination">-->
+<!--        <ul class="pagination-numbers">-->
+<!--            <li>-->
+<!--                <a href="#" class="prev page-number"><i class="fa fa-angle-double-left"></i></a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#" class="page-number current">1</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#" class="page-number">2</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#" class="page-number">3</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <span class="page-number dots">...</span>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#" class="page-number">29</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#" class="next page-number"><i class="fa fa-angle-double-right"></i></a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+<p-paginator [rows]="limit" [showCurrentPageReport]="true"  (onPageChange)="onPageChange($event)" currentPageReportTemplate="Showing {first} of {last} of {totalRecords} results" [totalRecords]="deeds.length"></p-paginator>

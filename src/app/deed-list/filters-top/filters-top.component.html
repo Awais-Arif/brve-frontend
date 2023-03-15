@@ -1,0 +1,23 @@
+<div class="product-filter-content">
+    <div class="product-filter-content-inner">
+
+        <!--Product Sort By-->
+        <form class="product-sort-by">
+            <label for="short-by" class="nice-select-label">Short By</label>
+            <select [(ngModel)]="sortingValue" (change)="setSorting($event)" name="short-by" id="short-by" class="nice-select nice-select-box">
+                <option value="a-z">a-z</option>
+                <option value="z-a">z-a</option>
+            </select>
+        </form>
+
+        <!--Product Show-->
+        <form class="product-show">
+            <label for="product-show" class="nice-select-label">Show</label>
+            <select name="product-show" id="product-show" (change)="onChange()" [(ngModel)]="limit" [ngModel]="limit" class="nice-select nice-select-box">
+                <option value="5" selected="selected">5</option>
+                <option value="20">20</option>
+                <option value="all">Show All</option>
+            </select>
+        </form>
+    </div>
+</div>

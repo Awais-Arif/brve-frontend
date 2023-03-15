@@ -1,0 +1,66 @@
+/* Product Filter */
+.product-filter-content {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.product-filter-content .product-filter-content-inner {
+    display: inline-block;
+    width: 100%;
+}
+
+.product-filter-content label, .product-filter-content p, .product-filter-content form, .product-filter-content input, .product-filter-content .product-filter-content-inner > div {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.product-filter-content label {
+    padding-right: 5px;
+}
+
+.product-filter-content > .product-filter-content-inner > form, .product-filter-content > .product-filter-content-inner > p, .product-filter-content > .product-filter-content-inner > div {
+    margin-right: 30px;
+}
+
+.product-filter-content > *:last-child {
+    margin-right: 0;
+}
+
+.nice-select {
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    border-radius: 0px;
+    border: solid 1px #ddd;
+    box-sizing: border-box;
+    clear: both;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    height: 42px;
+    line-height: 40px;
+    outline: none;
+    padding-left: 18px;
+    padding-right: 30px;
+    position: relative;
+    text-align: left !important;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    width: auto;
+}
+
+.nice-select-label {
+    line-height: 40px;  
+}

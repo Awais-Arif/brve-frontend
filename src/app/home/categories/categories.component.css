@@ -1,0 +1,101 @@
+/*------------------------------------------------------------------*/
+/* Categories Box */
+/*------------------------------------------------------------------*/
+.categories-box {
+    display: block;
+    position: relative;
+}
+
+    .categories-box .categories-image-wrap {
+        overflow: hidden;
+        text-align: center;
+    }
+
+        .categories-box .categories-image-wrap img {
+            transition: all 350ms ease-out 0s;
+            -moz-transition: all 350ms ease-out 0s;
+            -o-transition: all 350ms ease-out 0s;
+            -webkit-transition: all 350ms ease-out 0s;
+        }
+
+    .categories-box:hover .categories-image-wrap img {
+        transform: scale(1.03);
+        -moz-transform: scale(1.03);
+        -ms-transform: scale(1.03);
+        -o-transform: scale(1.03);
+        -webkit-transform: scale(1.03);
+    }
+
+    .categories-box .categories-content {
+        width: 100%;
+        position: relative;
+        text-align: center;
+        margin-top: -18px;
+    }
+
+        .categories-box .categories-content .categories-caption {
+            padding: 10px 30px;
+            background: #fff;
+            /*border: 1px solid #eee;*/
+            display: inline-block;
+        }
+
+            .categories-box .categories-content .categories-caption h3,
+            .categories-box .categories-content .categories-caption h4,
+            .categories-box .categories-content .categories-caption h5,
+            .categories-box .categories-content .categories-caption h6,
+            .categories-box .categories-content .categories-caption p {
+                margin-bottom: 0;
+                margin-top: 0;
+                color: #333;
+                transition: all 350ms ease-out 0s;
+                -moz-transition: all 350ms ease-out 0s;
+                -o-transition: all 350ms ease-out 0s;
+                -webkit-transition: all 350ms ease-out 0s;
+            }
+
+    .categories-box:hover .categories-content .categories-caption h3,
+    .categories-box:hover .categories-content .categories-caption h4,
+    .categories-box:hover .categories-content .categories-caption h5,
+    .categories-box:hover .categories-content .categories-caption h6 {
+        color: #394956;
+    }
+
+
+/*------------------------------------------------------------------*/
+/* Newsletter */
+/*------------------------------------------------------------------*/
+.newsletter {
+    text-align: center;
+}
+
+#form-newsletter {
+    max-width: 800px;
+    margin: 0 auto 15px;
+}
+
+.newsletter-from .form-input {
+    display: inline-block;
+    position: relative;
+}
+
+.newsletter-from input {
+    background: rgba(0, 0, 0, 0.10);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff !important;
+    border-radius: 50px;
+    min-width: 450px;
+    padding: 12px 20px;
+    width: 100%;
+    outline: none;
+    transition: all 0.3s ease 0s !important;
+    -moz-transition: all 0.3s ease 0s !important;
+    -o-transition: all 0.3s ease 0s !important;
+    -webkit-transition: all 0.3s ease 0s !important;
+}
+
+    .newsletter-from input:focus, .newsletter-from input:hover {
+        border-color: rgba(255,255,255,0.30) !important;
+        background: rgba(0, 0, 0, 0.3) !important;
+    }
+

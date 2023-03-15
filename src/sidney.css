@@ -1,0 +1,68 @@
+/* sidneys css */
+
+body {background-color: #ffffff;}
+
+nav { background: #ffffff; }
+
+.btn-gray-blue {
+    background: #394956 !important;
+    border: 0 !important;
+    padding: 10px 15px !important;
+    color: #fff !important;
+    border-radius: 3px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: 'Lato', sans-serif !important;
+  }
+  
+  .navbar-nav li a, nav, .login-wrap a button {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .gray-blue-bg {
+    background: #394956;
+  }
+  
+  #email-address {
+    background: transparent;
+    border-radius: 0;
+    color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    height: 50px;
+  }
+  
+  input[type=email] {
+    width: 100%;
+    height: 50px;
+    line-height: 5px;
+    max-width: 100%;
+    font-size: 14px;
+    font-family: "Lato",sans-serif;
+    color: #ffffff;
+  }
+  
+  .btn-news {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    font-size: 15px;
+    padding: 16px;
+    margin-left: -6px;
+    height: 50px;
+    width: 50px;
+  }
+  
+  .italic-while {
+    color: #ffffff;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+    /* border-bottom: 1px solid #f2f2f2; */
+  }
+
+  .container { max-width: 1140px;}

@@ -1,0 +1,17 @@
+
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center py-5 mt-5">
+        <div class="col-md-6">
+            <app-deed-description [deed]="selectedDeed"></app-deed-description>
+        </div>
+        <div class="col-md-3">
+            <img [src]="'http://localhost:5000/' + selectedDeed?.image?.path" alt="">
+        </div>
+    </div>
+
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-12">
+            <app-timeline></app-timeline>
+        </div>
+    </div>
+</div>

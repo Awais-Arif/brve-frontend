@@ -1,0 +1,21 @@
+<!-- item.1 -->
+<div class="product-item-element col-sm-6 col-md-6 col-lg-4"> <!--*ngIf="deed.city === 'Salt Lake City'" -->
+    <!--Product Item-->
+    <div class="product-item">
+        <div class="product-item-inner">
+            <div class="product-img-wrap">
+                <img [src]="'http://localhost:5000/' + deed?.image?.path" width="220" height="220" alt="">
+            </div>
+        </div>
+        <div class="product-detail">
+            <p class="product-title"><a class="font-weight-bold">{{ deed.title }}</a></p>
+            <p class="written-by">Written by: {{ deed.firstName }} {{ deed.lastName }} | Deed Location: {{ deed.location }}</p>
+            <p class="product-description">
+                {{ deed.deedDescription }}
+            </p>
+            <a class="read-more">Read More</a>
+        </div>
+        <!-- d -->
+    </div>
+    <!-- End Product Item-->
+</div>

@@ -1,0 +1,67 @@
+/* Brand Carousel */
+.brand-logo-carousel .owl-item img {
+    max-width: 100%;
+    width: auto;
+    max-height: 70px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.brand-item {
+    height: 100px !important;
+}
+
+.brand-item a img {
+    width: 100px;
+}
+
+.brand-logo-carousel {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.brand-logo-carousel .owl-item {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.brand-logo-carousel .brand-item {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.owl-carousel .owl-item {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+.owl-carousel.owl-loaded {
+    display: block;
+}
+
+.owl-stage-outer {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .nf-carousel-theme1 {
+        overflow: hidden;
+    }
+
+        .nf-carousel-theme1:hover .owl-next {
+            right: 5px;
+        }
+
+        .nf-carousel-theme1:hover .owl-prev {
+            left: 5px;
+        }
+}
