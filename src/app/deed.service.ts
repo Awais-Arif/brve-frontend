@@ -1,12 +1,15 @@
-import {EventEmitter, Injectable} from "@angular/core";
-import {FormGroup} from "@angular/forms";
-import {HttpClient} from '@angular/common/http';
-import {Deed} from "./deed.model";
-import {map, Observable, Subject} from "rxjs";
+import { EventEmitter, Injectable } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { HttpClient } from '@angular/common/http';
+import { Deed } from "./deed.model";
+import { map, Observable, Subject } from "rxjs";
+import { environment } from "src/environments/environment";
 
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DeedService {
+
+  baseURL = environment.API_URL
 
   selectedCategory = "John"
   deedSelected = new EventEmitter<Deed>();
@@ -20,7 +23,7 @@ export class DeedService {
 
   getDeeds() {
     return this.http
-      .get('http://localhost:5000/deeds/get-deeds')
+      .get(`${this.baseURL}deeds/get-deeds`)
       .pipe(
         map(responseData => {
 
@@ -29,7 +32,7 @@ export class DeedService {
           for (const key in responseData['deeds']) {
             console.log('has own prop', responseData.hasOwnProperty(key))
             if (responseData['deeds'].hasOwnProperty(key)) {
-              deedsArray.push({...responseData['deeds'][key], id: key});
+              deedsArray.push({ ...responseData['deeds'][key], id: key });
             }
           }
 
@@ -48,7 +51,7 @@ export class DeedService {
       formData.append(key, form.value[key]);
     }
 
-    return this.http.post('http://localhost:5000/deeds/create-deed', formData);
+    return this.http.post(`${this.baseURL}deeds/create-deed`, formData);
     // console.log(form.value);
     // this.http.post(
     //     'http://localhost:5000/deeds/create-deed',
@@ -63,11 +66,11 @@ export class DeedService {
   }
 
   getDeedById(id): Observable<any> {
-    return  this.http.get('http://localhost:5000/deeds/get-deed-by-id/' + id);
+    return this.http.get(`${this.baseURL}deeds/get-deed-by-id/` + id);
   }
 
   getHashTags(): Observable<any> {
-    return this.http.get('http://localhost:5000/hash-tags/get-hash-tags');
+    return this.http.get(`${this.baseURL}hash-tags/get-hash-tags`);
   }
 }
 

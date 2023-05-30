@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Deed } from 'src/app/deed.model';
 import { DeedService } from 'src/app/deed.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-list-item',
@@ -10,10 +11,11 @@ import { DeedService } from 'src/app/deed.service';
 })
 export class ListItemComponent implements OnInit {
 
+  baseURL = environment.API_URL
   @Input() deed: Deed;
   @Input() index: number;
 
-  constructor(private deedService: DeedService){}
+  constructor(private deedService: DeedService) { }
 
   ngOnInit(): void {
   }
