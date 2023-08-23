@@ -1,41 +1,112 @@
-<nav class="navbar navbar-expand-lg px-5">
-    <a class="navbar-brand" href="#">
-      <img src="https://cdn.shopify.com/s/files/1/0639/3715/1221/files/brve-horizontal-logo_600x.png?v=1655418267"
-           width="135"
-           alt="">
-    </a>
+<!-- <nav class="navbar navbar-expand-lg px-sm-5 px-2" style="border:1px solid red"> -->
+<div class="conatiner-fluid">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <div>
+    <div class="row g-0 dnone">
+      <div class="col-2 ps-lg-5 ps-2">
+        <a class="navbar-brand" href="#">
+          <img src="https://cdn.shopify.com/s/files/1/0639/3715/1221/files/brve-horizontal-logo_600x.png?v=1655418267"
+            width="135" alt="">
+        </a>
+      </div>
+      <div class="col-lg-7 col-md-6 d-flex align-items-center justify-content-center ">
+        <a routerLinkActive="active" routerLink="/deed-list">Good Deed List</a>
+        <a routerLinkActive="active" routerLink="deed-detail" class="mx-lg-3 mx-2 ">Good Deed Focused</a>
+        <a routerLinkActive="active" routerLink="deed-submission">Submission Form</a>
+      </div>
+      <div class="col-lg-3 col-md-4 d-flex align-items-center justify-content-center">
+        <a routerLink="">Sign In</a>
+        <a routerLink="/deed-list" class="mx-2">Sign Up</a>
+        <button type="button" class="header-button">submit brve act</button>
+      </div>
+    </div>
+
+    <div class="menu-container" >
+      <div class="mobile-nav-container">
+        <img src="assets/images/hamburger.png" [class.display]="!expand" [class.hide]="expand" alt=""
+          (click)="expand = true" height="25px" width="25px">
+        <img src="assets/images/close.png" [class.display]="expand" [class.hide]="!expand" alt=""
+          (click)="expand = false" height="25px" width="25px">
+
+        <div class=" ps-5">
+          <a class="navbar-brand" href="#">
+            <img src="https://cdn.shopify.com/s/files/1/0639/3715/1221/files/brve-horizontal-logo_600x.png?v=1655418267"
+              width="135" alt="">
+          </a>
+        </div>
+
+        <div class="right-container" [class.show]="expand" [class.hide]="!expand">
+          <div class="parent-container" [class.hide-fortcel-mig-mere-container]="!showList">
+            <div class="column">
+              <div class="d-flex flex-column justify-content-between">
+                <div class="border-bottom d-flex align-items-center">
+                  <a routerLink="/deed-list" class="ps-3">Good Deed List</a>
+                </div>
+                <div class="border-bottom d-flex align-items-center">
+                  <a routerLink="deed-detail" class="ps-3">Good Deed Focused</a>
+                </div>
+                <div class="border-bottom d-flex align-items-center">
+                  <a routerLink="deed-submission" class="ps-3">Submission Form</a>
+                </div>
+                <div class="border-bottom d-flex align-items-center">
+                  <a routerLink="/deed-list" class="ps-3">Sign In</a>
+                </div>
+                <div class="border-bottom d-flex align-items-center">
+                  <a routerLink="/deed-list" class="ps-3">Sign Up</a>
+                </div>
+
+                <button type="button" class="header-button mt-2 mx-3 ">submit brve act</button>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li routerLinkActive="active" class="nav-item px-1 ">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav align-items-end me-lg-0 me-5">
+        <li routerLinkActive="active" class="nav-item px-1">
           <a class="nav-link" routerLink="/deed-list">Good Deed List</a>
         </li>
-        <li routerLinkActive="active" class="nav-item px-1 ">
+        <li routerLinkActive="active" class="nav-item ">
           <a class="nav-link" routerLink="deed-detail">Good Deed Focused</a>
         </li>
-        <li routerLinkActive="active" class="nav-item px-1 ">
+        <li routerLinkActive="active" class="nav-item  ">
           <a class="nav-link" routerLink="deed-submission">Submission Form</a>
         </li>
       </ul>
-    </div>
-
-    <div class="login-wrap my-2 my-lg-0">
-      <ul class="navbar-nav d-flex align-items-center">
-        <li routerLinkActive="active" class="nav-item  px-1 active">
-          <a class="nav-link" routerLink="">Sign In</a>
-        </li>
-        /
-        <li routerLinkActive="active" class="nav-item px-1">
-          <a class="nav-link" routerLink="/deed-list">Sign Up</a>
-        </li>
-        <li routerLinkActive="active" class="nav-item px-1">
-          <a class="nav-link btn-gray-blue" routerLink="deed-submission">Submit Deed</a>
-        </li>
-      </ul>
-    </div>
-
-</nav>
+      <div class="login-wrap my-2 my-lg-0 d-flex justify-content-end">
+        <ul class="navbar-nav d-flex align-items-end me-lg-0 me-5 me-5">
+          <li routerLinkActive="active" class="nav-item sign-in  active">
+            <a class="nav-link" routerLink=""> Sign In    </a>
+          </li>
+          <span class="mb-2">/</span>
+          <li routerLinkActive="active" class="nav-item sign-in">
+            <a class="nav-link" routerLink="/deed-list">Sign Up</a>
+          </li>
+          <li routerLinkActive="active" class="nav-item ">
+            <a class="nav-link btn-gray-blue" routerLink="deed-submission">“submit brve act</a>
+          </li>
+        </ul>
+      </div>
+    </div> -->

@@ -3,65 +3,51 @@
     <div class="prt_contact_info ">
       <div class="prt_contact_form">
 
-        <form (ngSubmit)="onSubmit()" [formGroup]="deedsForm">
+        <form class="px-2" (ngSubmit)="onSubmit()" [formGroup]="deedsForm">
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <h1>Submit your story</h1>
               <p>
-                This is a movement of kindness. Just think for a minute about how every action you take,
-                every word you speak, has an impact far greater than you could imagine.
+                The brve effect is a movement of kindness. Every action you take, every word you speak, has an impact
+                far greater than you could imagine.
               </p>
 
               <p>
-                Share your story so we can track the impact of this card as it passes along to people
-                all around the world.
+                Submit your story to discover everywhere this card has been before you, and follow every life it impacts
+                after you pass it on
               </p>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
               <app-form-control>
-                <input
-                    formControlName="cardNumber"
-                    name="card-number"
-                    placeholder="Card Number"
-                    type="text">
+                <input formControlName="cardNumber" name="card-number"
+                  placeholder="Card Number located under QR code (000 000 000)" type="text">
               </app-form-control>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
               <app-form-control>
-                <input
-                    formControlName="location"
-                    name="location"
-                    placeholder="Location"
-                    type="text">
+                <input formControlName="location" name="location" placeholder="Location" type="text">
               </app-form-control>
             </div>
           </div>
 
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <app-form-control>
-              <input
-                  formControlName="title"
-                  name="title"
-                  placeholder="Deed Title"
-                  type="text">
+              <input formControlName="title" name="title" placeholder="Give your brve experience a name" type="text">
             </app-form-control>
           </div>
 
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <p-fileUpload #fileUpload (onSelect)="onFileSelect($event)" [chooseLabel]="'Upload Image'"
-                          [multiple]="false" [showCancelButton]="false"
-                          [showUploadButton]="false"></p-fileUpload>
+            <p-fileUpload #fileUpload (onSelect)="onFileSelect($event)" [chooseLabel]="' &nbsp;&nbsp;Upload Image'"
+              [multiple]="false" [showCancelButton]="false" [showUploadButton]="false"></p-fileUpload>
           </div>
 
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <app-form-control>
-                                <textarea
-                                    formControlName="whatsHappening"
-                                    name="whats-happening"
-                                    placeholder="What did the person who gave you this card do for you? What did that kind action mean to you in that moment?"
-                                    rows="4"></textarea>
+              <textarea formControlName="whatsHappening" name="whats-happening"
+                placeholder="What did the person who gave you this card do for you? What did that experience mean to you?"
+                rows="4"></textarea>
             </app-form-control>
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px;">
@@ -69,13 +55,16 @@
                 <input type="checkbox" id="{{ tag }}" name="{{ tag }}" value="Bike">
                 <label for="{{ tag }}">{{ tag }}</label>
             </div>   -->
-<!--            <p-chips [allowDuplicate]="false" [showClear]="true" -->
-<!--                     placeholder="Hash Tags"></p-chips>-->
-            <p-multiSelect [options]="hashTags" formControlName="hashTags" placeholder="Hash Tags" [showClear]="true"></p-multiSelect>
+            <!--            <p-chips [allowDuplicate]="false" [showClear]="true" -->
+            <!--                     placeholder="Hash Tags"></p-chips>-->
 
+            <p-multiSelect [options]="hashTags" formControlName="hashTags" placeholder="#hashtags" [showClear]="true"
+              display="chip"></p-multiSelect>
           </div>
-          <p>Don’t let the journey stop here - do something kind and pass it on. Follow the journey of this
-            card to see how far reaching your actions can be. </p>
+
+          <p>Don’t let the journey stop here. Go do something good for another human and pass this card on
+            Record your story on Instagram or Tik Tok and tag @brve.effect or #brveeffect to share more and be featured
+          </p>
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <h3>Before you go</h3>
@@ -83,40 +72,33 @@
           </div>
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 15px;">
-              <p>Would you come onto our podcast to share your story?</p>
+              <p> Can we contact you about sharing more of your story? <br>
+                We won’t share your personal information with anyone else.
+              </p>
               <app-form-control>
                 <input formControlName="podcast" id="html" name="podcast" type="radio" value="yes">
-                <label for="html">Yes</label><br>
+                <label for="html" style="margin-left:-2px;">Yes</label><br>
+
                 <input formControlName="podcast" id="css" name="podcast" type="radio" value="no">
                 <label for="css">No</label><br>
               </app-form-control>
-              <span style="font-size: 10px; margin-bottom: 20px;">*saying yes doesn’t guarantee an appearance on the podcast. Also, we won’t share your personal  information with anyone else.</span>
+
+              <span style="font-size: 10px; margin-bottom: 20px;">*saying yes doesn’t guarantee an appearance on the
+                podcast. Also, we won’t share your personal information with anyone else.</span>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <app-form-control>
-                <input
-                    formControlName="firstName"
-                    name="first-name"
-                    placeholder="First Name"
-                    type="text">
+                <input formControlName="firstName" name="first-name" placeholder="First Name" type="text">
               </app-form-control>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <app-form-control>
-                <input
-                    formControlName="lastName"
-                    name="last-name"
-                    placeholder="Last Name"
-                    type="text">
+                <input formControlName="lastName" name="last-name" placeholder="Last Name" type="text">
               </app-form-control>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <app-form-control>
-                <input
-                    formControlName="email"
-                    name="email"
-                    placeholder="Email"
-                    type="text">
+                <input formControlName="email" name="email" placeholder="Email" type="text">
               </app-form-control>
             </div>
           </div>
@@ -124,9 +106,8 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button class="btn-gray-blue" form-type="contact" type="submit">submit</button>
           </div>
-
         </form>
-
+        
       </div>
     </div>
   </div>

@@ -4,13 +4,23 @@ import { DeedService } from '../deed.service';
 import {UtilService} from "../services/util.service";
 import {Router} from "@angular/router";
 import {ToastService} from "../services/toast.service";
+import { environment } from 'src/environments/environment';
+
+interface City {
+  name: string,
+  code: string
+}
+
+
 @Component({
   selector: 'app-deed-submission',
   templateUrl: './deed-submission.component.html',
   styleUrls: ['./deed-submission.component.css']
 })
 export class DeedSubmissionComponent implements OnInit {
+  cities: City[];
 
+    selectedCityCodes: string[];
   hashTags = [];
   deedsForm: FormGroup;
   @ViewChild('fileUpload') fileUpload: ElementRef;
@@ -20,24 +30,35 @@ export class DeedSubmissionComponent implements OnInit {
               private router: Router,
               private utilService: UtilService,
               private toastService: ToastService
-  ) { }
+  ) { 
+    this.cities = [
+      {name: 'New York', code: 'NY'},
+      {name: 'Rome', code: 'RM'},
+      {name: 'London', code: 'LDN'},
+      {name: 'Istanbul', code: 'IST'},
+      {name: 'Paris', code: 'PRS'}
+  ];
+  
+  }
 
   ngOnInit(): void {
    this.createForm();
    this.getHashTags();
+   console.log (environment.API_URL)
+   
   }
 
   createForm() {
     this.deedsForm = this.fb.group({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      firstName: new FormControl(null, [Validators.required]),
-      lastName: new FormControl(null, [Validators.required]),
-      cardNumber: new FormControl(null, [Validators.required]),
-      location: new FormControl(null, [Validators.required]),
-      image: new FormControl(null, [Validators.required]),
-      title: new FormControl(null, [Validators.required]),
+      email: new FormControl(null),
+      firstName: new FormControl(null),
+      lastName: new FormControl(null),
+      cardNumber: new FormControl(null),
+      location: new FormControl(null),
+      image: new FormControl(null),
+      title: new FormControl(null ),
       podcast: new FormControl(null, [Validators.required]),
-      whatsHappening: new FormControl(null, [Validators.required]),
+      whatsHappening: new FormControl(null),
       hashTags: new FormControl([]),
       category: new FormControl(''),
     });
@@ -46,10 +67,12 @@ export class DeedSubmissionComponent implements OnInit {
   getHashTags(): void {
     this.deedsService.getHashTags().subscribe((response: any) => {
       this.hashTags = response.hashTags;
+      console.log(this.hashTags)
     }, error => {
       this.toastService.error(error.error.message);
     })
   }
+
 
   onFileSelect(event): void {
     this.deedsForm.get('image').setValue(event.currentFiles[0]);
@@ -67,4 +90,9 @@ export class DeedSubmissionComponent implements OnInit {
       this.toastService.error(error.error.message);
     });
   }
+
+  
+  
+
+
 }

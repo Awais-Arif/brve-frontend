@@ -92,6 +92,12 @@ body {
     line-height: 24px;
 }
 
+.p-multiselect-token-icon {
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+
 #page-wraper, .page-content-wraper {
     position: relative;
     width: 100%;
@@ -167,6 +173,8 @@ img {
     border: none;
     outline: none;
 }
+
+
 
 .overlay-black, .overlay-black20, .overlay-black30, .overlay-black40, .overlay-black60, .overlay-black80, .overlay-black90, .overlay-light, .overlay-light20, .overlay-light40, .overlay-light60, .overlay-light80, .overlay-light90 {
     position: relative;
