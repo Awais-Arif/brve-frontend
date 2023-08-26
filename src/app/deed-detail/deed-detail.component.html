@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row d-flex align-items-center justify-content-center py-5 mt-5">
-    <div class="col-md-6">
+    <div class="col-md-6" *ngIf="showDeed">
       <app-deed-description [deed]="selectedDeed"></app-deed-description>
     </div>
     <div class="col-md-3">
@@ -8,9 +8,12 @@
     </div>
   </div>
 
-  <div class="row d-flex align-items-center justify-content-center">
+  <div
+    class="row d-flex align-items-center justify-content-center"
+    *ngIf="showtimeline"
+  >
     <div class="col-md-12">
-      <app-timeline></app-timeline>
+      <app-timeline [deed]="storiesList"></app-timeline>
     </div>
   </div>
 </div>

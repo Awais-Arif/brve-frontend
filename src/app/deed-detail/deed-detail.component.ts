@@ -12,8 +12,10 @@ import { environment } from 'src/environments/environment';
 export class DeedDetailComponent implements OnInit {
 
   baseURL = environment.API_URL
-
-  selectedDeed: any;
+  showDeed = false
+  showtimeline = false
+  selectedDeed!: any;
+  storiesList: any = [];
   constructor(
     private activatedRoute: ActivatedRoute,
     private deedService: DeedService,
@@ -26,14 +28,34 @@ export class DeedDetailComponent implements OnInit {
         this.getDeedDetails(params['id']);
       }
     });
+
   }
 
   getDeedDetails(id): void {
     this.deedService.getDeedById(id).subscribe((response: any) => {
       this.selectedDeed = response.deed;
+      console.log(this.selectedDeed);
+      this.getDeeds();
+      this.showDeed = true
+
     }, error => {
       this.toastService.error(error.error.message)
     });
+  }
+
+  getDeeds(): void {
+    const params = {
+      sort: true,
+      cardNumber: this.selectedDeed.cardNumber,
+      id: this.selectedDeed._id
+    }
+    this.deedService.getDeeds(params)
+      .subscribe((deeds: any) => {
+        this.storiesList = deeds;
+        this.showtimeline = true
+      }, error => {
+        console.log(error);
+      });
   }
 
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -14,7 +14,6 @@ export class PaginationComponent implements OnInit {
   }
   @Input() set setLimit(limit) {
     this.limit = limit;
-    console.log(this.limit);
   }
   @Output() currentRecordIndex = new EventEmitter();
 

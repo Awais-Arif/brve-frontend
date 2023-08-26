@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DeedService } from '../deed.service';
-import {UtilService} from "../services/util.service";
-import {Router} from "@angular/router";
-import {ToastService} from "../services/toast.service";
+import { UtilService } from "../services/util.service";
+import { Router } from "@angular/router";
+import { ToastService } from "../services/toast.service";
 import { environment } from 'src/environments/environment';
 
 interface City {
@@ -20,32 +20,31 @@ interface City {
 export class DeedSubmissionComponent implements OnInit {
   cities: City[];
 
-    selectedCityCodes: string[];
+  selectedCityCodes: string[];
   hashTags = [];
   deedsForm: FormGroup;
   @ViewChild('fileUpload') fileUpload: ElementRef;
 
-  constructor(private fb:FormBuilder,
-              private deedsService: DeedService,
-              private router: Router,
-              private utilService: UtilService,
-              private toastService: ToastService
-  ) { 
+  constructor(private fb: FormBuilder,
+    private deedsService: DeedService,
+    private router: Router,
+    private utilService: UtilService,
+    private toastService: ToastService
+  ) {
     this.cities = [
-      {name: 'New York', code: 'NY'},
-      {name: 'Rome', code: 'RM'},
-      {name: 'London', code: 'LDN'},
-      {name: 'Istanbul', code: 'IST'},
-      {name: 'Paris', code: 'PRS'}
-  ];
-  
+      { name: 'New York', code: 'NY' },
+      { name: 'Rome', code: 'RM' },
+      { name: 'London', code: 'LDN' },
+      { name: 'Istanbul', code: 'IST' },
+      { name: 'Paris', code: 'PRS' }
+    ];
+
   }
 
   ngOnInit(): void {
-   this.createForm();
-   this.getHashTags();
-   console.log (environment.API_URL)
-   
+    this.createForm();
+    this.getHashTags();
+
   }
 
   createForm() {
@@ -56,7 +55,7 @@ export class DeedSubmissionComponent implements OnInit {
       cardNumber: new FormControl(null),
       location: new FormControl(null),
       image: new FormControl(null),
-      title: new FormControl(null ),
+      title: new FormControl(null),
       podcast: new FormControl(null, [Validators.required]),
       whatsHappening: new FormControl(null),
       hashTags: new FormControl([]),
@@ -91,8 +90,12 @@ export class DeedSubmissionComponent implements OnInit {
     });
   }
 
-  
-  
+
+  onMultiSelectChange(e: any) {
+    let value = JSON.stringify(e.value);
+    this.deedsForm.get('hashTags').setValue(value);
+
+  }
 
 
 }

@@ -21,9 +21,9 @@ export class DeedService {
     });
   }
 
-  getDeeds() {
+  getDeeds(params = null) {
     return this.http
-      .get(`${this.baseURL}deeds/get-deeds`)
+      .get(`${this.baseURL}deeds/get-deeds`, { params })
       .pipe(
         map(responseData => {
 
@@ -35,9 +35,6 @@ export class DeedService {
               deedsArray.push({ ...responseData['deeds'][key], id: key });
             }
           }
-
-          console.log('arrrrrrrrrr');
-          console.log(deedsArray);
 
           return deedsArray;
         })

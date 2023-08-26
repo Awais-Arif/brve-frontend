@@ -1,0 +1,7 @@
+.product-item {
+  width: 256px;
+}
+.product-item-inner {
+  height: 256px;
+  cursor: pointer;
+}

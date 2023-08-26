@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-deed-description',
@@ -7,11 +7,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class DeedDescriptionComponent implements OnInit {
 
-  @Input() deed;
+  @Input() deed: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.deed = this.deed
   }
 
 }

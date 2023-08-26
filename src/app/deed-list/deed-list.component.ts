@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
-import {Deed} from '../deed.model';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Deed } from '../deed.model';
 
-import {DeedService} from '../deed.service';
-import {FiltersTopComponent} from "./filters-top/filters-top.component";
+import { DeedService } from '../deed.service';
+import { FiltersTopComponent } from "./filters-top/filters-top.component";
 
 @Component({
   selector: 'app-deed-list',
@@ -32,9 +32,9 @@ export class DeedListComponent implements OnInit, AfterViewInit {
     this.getDeeds();
   }
 
-  getDeeds(): void {
+  getDeeds(params?: any): void {
     this.end = +this.deedFilter.limit;
-    this.deedService.getDeeds()
+    this.deedService.getDeeds(params)
       .subscribe((deeds: any) => {
         this.deeds = deeds;
         if (this.deedFilter.limit === 'all') {
@@ -90,4 +90,14 @@ export class DeedListComponent implements OnInit, AfterViewInit {
     this.selectedDeed = deed;
     this.router.navigate(['/deed-detail/' + this.selectedDeed._id]).then()
   }
+
+  catchResponse(data: any) {
+    console.log('data', data);
+    const params = {
+      tag: data
+    }
+    this.getDeeds(params)
+
+  }
+
 }

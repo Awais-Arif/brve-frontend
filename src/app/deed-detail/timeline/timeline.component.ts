@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-timeline',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelineComponent implements OnInit {
 
-  constructor() { }
+  @Input() deed: any;
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.deed);
+
+  }
+
+  onSelected(id: any) {
+    this.router.navigate(['/deed-detail/' + id]).then()
   }
 
 }

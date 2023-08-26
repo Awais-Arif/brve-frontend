@@ -1,42 +1,52 @@
 <!-- Page Content -->
 <section class="content-page">
-    <div class="container">
-        <div class="row">
+  <div class="container">
+    <div class="row">
+      <!-- Deeds Content -->
+      <div class="col-md-9">
+        <!-- Title -->
+        <div class="list-page-title">
+          <h2 class="">
+            Good Deeds <small>{{ deeds?.length }} deeds</small>
+          </h2>
+        </div>
 
-            <!-- Deeds Content -->
-            <div class="col-md-9">
-                <!-- Title -->
-                <div class="list-page-title">
-                    <h2 class="">Good Deeds <small>{{deeds?.length}} deeds</small></h2>
-                </div>
+        <!-- Deeds Filter -->
+        <app-filters-top
+          #deedFilter
+          (emitLimit)="this.getDeeds()"
+        ></app-filters-top>
 
-                <!-- Deeds Filter -->
-                <app-filters-top #deedFilter (emitLimit)="this.getDeeds()"></app-filters-top>
-
-                <!-- Deeds List -->
-                <!-- <app-recipe-item
+        <!-- Deeds List -->
+        <!-- <app-recipe-item
                 *ngFor="let recipeEl of recipes; let i = index"
                 [recipe]="recipeEl"
                 [index]="i"></app-recipe-item> -->
-                <div class="row product-list-item product-list-view">
-                    <app-list-item
-                    *ngFor="let d of deeds | slice: start: end; let i = index;"
-                    [deed]="d"
-                    [index]="i"
-                    (click)="onSelected(d)"
-                    ></app-list-item>
-                </div>
-            
-                <!-- Pagination -->
-                <app-pagination *ngIf="deedFilter.limit !== 'all'" [setLimit]="deedFilter.limit" [setDeeds]="deeds" (currentRecordIndex)="start = $event; end = $event + +deedFilter.limit"></app-pagination>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <app-filters></app-filters>
-            </div>
-
+        <div class="row product-list-item product-list-view">
+          <app-list-item
+            *ngFor="let d of deeds | slice : start : end; let i = index"
+            [deed]="d"
+            [index]="i"
+            (click)="onSelected(d)"
+          ></app-list-item>
         </div>
+
+        <!-- Pagination -->
+        <app-pagination
+          *ngIf="deedFilter.limit !== 'all'"
+          [setLimit]="deedFilter.limit"
+          [setDeeds]="deeds"
+          (currentRecordIndex)="
+            start = $event; end = $event + +deedFilter.limit
+          "
+        ></app-pagination>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-md-3">
+        <app-filters (selectedHashtag)="catchResponse($event)"></app-filters>
+      </div>
     </div>
+  </div>
 </section>
 <!-- End Page Content -->
