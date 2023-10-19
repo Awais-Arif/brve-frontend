@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
+import { DeedService } from 'src/app/deed.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-featured-stories-expanded',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturedStoriesExpandedComponent implements OnInit {
 
-  constructor() { }
+  hashTags = [];
+  storiesList = [];
+  showFirst = true;
+  baseURL = environment.API_URL;
+  constructor(
+    private deedsService: DeedService,
+    private router: Router,
+    private renderer: Renderer2, private elementRef: ElementRef
+  ) { }
 
   ngOnInit(): void {
+    this.getDeeds()
   }
+
+  getDeeds(): void {
+    const params = {
+      limit: 4
+    }
+    this.deedsService.getDeeds(params)
+      .subscribe((deeds: any) => {
+        this.storiesList = deeds;
+      }, error => {
+        console.log(error);
+      });
+  }
+  onSelected(id: any) {
+    this.router.navigate(['/deed-detail/' + id]).then()
+  }
+
 
 }

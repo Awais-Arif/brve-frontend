@@ -26,16 +26,12 @@ export class DeedService {
       .get(`${this.baseURL}deeds/get-deeds`, { params })
       .pipe(
         map(responseData => {
-
           const deedsArray = [];
-
           for (const key in responseData['deeds']) {
-            console.log('has own prop', responseData.hasOwnProperty(key))
             if (responseData['deeds'].hasOwnProperty(key)) {
               deedsArray.push({ ...responseData['deeds'][key], id: key });
             }
           }
-
           return deedsArray;
         })
       );
